@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
 
-      <ion-title>Login</ion-title>
+      <ion-title class="title" >Login</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,8 +13,8 @@
 
         
           <ion-item class="ion-itemColor">
-              <ion-label class="lable" floating>Email</ion-label>
-              <ion-input formControlName="email" type="text"></ion-input>
+              <ion-label class="lableFloat" floating>Email</ion-label>
+              <ion-input class="lableFloat" formControlName="email" type="text"></ion-input>
           </ion-item>
           <ion-item class="ion-itemColor"
               no-lines
@@ -32,8 +32,8 @@
               </div>
           </ion-item>
           <ion-item class="ion-itemColor">
-                <ion-label class="lable" floating >password</ion-label>
-                <ion-input formControlName="password" type="password"></ion-input>
+                <ion-label class="lableFloat" floating >password</ion-label>
+                <ion-input class="lableFloat" formControlName="password" type="password"></ion-input>
             </ion-item>
             <ion-item class="ion-itemColor"
                 no-lines
@@ -52,16 +52,29 @@
             </ion-item>
           
             <ion-item class="ion-itemColor paddingTop" >
-                    <ion-label class="lable" floating >Branch</ion-label>
-                    <ion-select class="dropdown" formControlName="branch" >
-                            <ion-option selected value="0">Select Location </ion-option>
-                            <ion-option value="1">Mumbai - Dadar(Ruby Office)</ion-option>
-                            <ion-option value="2">Mumbai - Rabale(Sigma IT Park)</ion-option>
-                            <ion-option value="3">Mumbai - Prabhadevi(Bussiness Tower 8Th Floor)</ion-option>
-                            <ion-option value="4">Mumbai - Prabhadevi(Bussiness Tower 9Th Floor)</ion-option>
-                            <ion-option value="5">Mumbai - Prabhadevi(Bussiness Tower 10Th Floor)</ion-option>
-                            <ion-option value="6">Mumbai - Prabhadevi(Unique Office)</ion-option>
-                            <ion-option value="7">Pune</ion-option>
+                    <ion-label class="lableFloat" floating >City</ion-label>
+                    <ion-select class="lableFloat" (ionChange)="onChangeCity(user)" formControlName="city"  >
+                            <ion-option value="Mumbai">Mumbai</ion-option>
+                            <ion-option value="NaviMumbai">Navi Mumbai</ion-option>
+                            <ion-option value="Pune">Pune</ion-option>
+                          </ion-select>
+                </ion-item>
+                <ion-item class="ion-itemColor"
+                    no-lines
+                    *ngIf=" user.get('city').hasError('required')  && user.get('city').touched">
+    
+                    <div
+                        class="error"
+                        *ngIf=" user.get('city').touched">
+                        Please select city first
+                    </div>
+                </ion-item>
+
+            <ion-item class="ion-itemColor paddingTop" *ngIf="status" >
+                    <ion-label class="lableFloat" floating >Branch</ion-label>
+                          <ion-select  class="lableFloat" formControlName="branch" >
+                                <ion-option *ngFor="let category of categories;" 
+                                        [value]="category">{{category.title}}</ion-option>      
                           </ion-select>
                 </ion-item>
                 <ion-item class="ion-itemColor"

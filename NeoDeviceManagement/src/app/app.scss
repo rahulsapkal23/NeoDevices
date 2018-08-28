@@ -27,3 +27,31 @@
 .ion-itemColor{
     background-color : transparent !important
 }
+// IOS Styles
+.alert-ios [aria-checked=true] .alert-radio-label{
+    color:  #1385b9;
+    border-color : #1385b9;
+}
+
+.alert-ios .alert-button {
+    color:  #1385b9;
+}
+
+
+
+
+//  Android 
+.alert-md .alert-button{
+    color:  #1385b9;
+}
+.alert-md [aria-checked=true] .alert-radio-label{
+    color:  #1385b9;
+    border-color : #1385b9;
+}
+.alert-md [aria-checked=true] .alert-radio-icon{
+    border-color : #1385b9;
+}
+
+.alert-md .alert-radio-inner{
+    background-color : #1385b9
+}

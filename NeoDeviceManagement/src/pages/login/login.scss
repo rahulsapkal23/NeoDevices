@@ -1,9 +1,26 @@
 page-login {
-.lable{
-	color: #ffffff;
+.lableFloat{
+	color: #ffffff ;
+	font-size: 20px;
+	// margin-top: 4.8rem;
+	// text-align: center;
+	// letter-spacing: 0.1px;
+}
+
+.toolbar-title-ios{
+	color: #1385b9;
 	font-size: 22px;
 	// margin-top: 4.8rem;
 	// text-align: center;
 	// letter-spacing: 0.1px;
 }
+.alert-ios .alert-wrapper{
+	max-width : none imporant
+}
+
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: #FFF;
+}
+
+
 }
