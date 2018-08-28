@@ -20,8 +20,10 @@ export class LoginPage {
   ngOnInit() {
 
       this.user = new FormGroup({
-          username: new FormControl('', [Validators.required, Validators.minLength(4)]),
-          password: new FormControl('', [Validators.required, Validators.minLength(7)])
+          email: new FormControl('', [Validators.required, Validators.minLength(4)]),
+          password: new FormControl('', [Validators.required, Validators.minLength(7)]),
+          branch : new FormControl('',[Validators.required])
+          
       });
 
   }

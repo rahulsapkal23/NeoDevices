@@ -1,0 +1,57 @@
+
+<ion-header>
+
+	<ion-navbar hideBackButton>
+
+
+		<button ion-button menuToggle>
+			<ion-icon name="menu" class="ico-moon ico-menu"></ion-icon>
+		</button>
+
+		<ion-title>NeoSTORE</ion-title>
+
+		<div class="search">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</div>
+
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-slides pager *ngIf="sliderImages" >
+		<ion-slide *ngFor="let item of sliderImages">
+			<img src="{{ item }}">
+		</ion-slide>
+	</ion-slides>
+
+	<div class="blocks clearfix">
+		<div class="block" (click)="clicked('Tables')">
+			<h2>Tables</h2>
+			<div class="icon clearfix">
+				<span class="ico-moon icon-table"></span>
+			</div>
+		</div>
+		<div class="block" (click)="clicked('Sofas')">
+			<div class="icon clearfix">
+				<span class="ico-moon icon-sofa"></span>
+			</div>
+			<h2>Sofas</h2>
+		</div>
+		<div class="block" (click)="clicked('Chairs')">
+			<h2>Chairs</h2>
+			<div class="icon clearfix">
+				<span class="ico-moon icon-chair"></span>
+			</div>
+		</div>
+		<div class="block" (click)="clicked('Cupboards')">
+			<div class="icon clearfix">
+				<span class="ico-moon icon-cupboard"></span>
+			</div>
+			<h2>Cupboards</h2>
+		</div>
+	</div>
+
+</ion-content>

@@ -5,60 +5,85 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class= "bckColor">
 
   <ion-list no-lines>
 
       <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
 
         
-          <ion-item>
-              <ion-label floating>Username</ion-label>
-              <ion-input formControlName="username" type="text"></ion-input>
+          <ion-item class="ion-itemColor">
+              <ion-label class="lable" floating>Email</ion-label>
+              <ion-input formControlName="email" type="text"></ion-input>
           </ion-item>
-          <ion-item
+          <ion-item class="ion-itemColor"
               no-lines
-              *ngIf="( user.get('username').hasError('minlength') || user.get('username').hasError('required') ) && user.get('username').touched">
+              *ngIf="( user.get('email').hasError('minlength') || user.get('email').hasError('required') ) && user.get('email').touched">
 
               <div
                   class="error"
-                  *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+                  *ngIf="user.get('email').hasError('required') && user.get('email').touched">
                   Name is required
               </div>
               <div
                   class="error"
-                  *ngIf="user.get('username').hasError('minlength') && user.get('username').touched">
+                  *ngIf="user.get('email').hasError('minlength') && user.get('email').touched">
                   Minimum of 4 characters
               </div>
           </ion-item>
-          <ion-item>
-              <ion-label floating>password</ion-label>
-              <ion-input formControlName="password" type="password"></ion-input>
-          </ion-item>
-          <ion-item
-              no-lines
-              *ngIf="( user.get('password').hasError('required') || user.get('password').hasError('password') ) && user.get('password').touched">
-
-              <div
-                  class="error"
-                  *ngIf="user.get('password').hasError('required') && user.get('password').touched">
-                  password is required
-              </div>
-              <div
-                  class="error"
-                  *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
-                  Please enter valid password
-              </div>
-          </ion-item>
+          <ion-item class="ion-itemColor">
+                <ion-label class="lable" floating >password</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <ion-item class="ion-itemColor"
+                no-lines
+                *ngIf="( user.get('password').hasError('required') || user.get('password').hasError('minlength') ) && user.get('password').touched">
+  
+                <div
+                    class="error"
+                    *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+                    password is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
+                    Please enter minimum 7 letter for password
+                </div>
+            </ion-item>
           
-          <button ion-button full margin-top [disabled]="user.invalid">Login</button>
+            <ion-item class="ion-itemColor paddingTop" >
+                    <ion-label class="lable" floating >Branch</ion-label>
+                    <ion-select class="dropdown" formControlName="branch" >
+                            <ion-option selected value="0">Select Location </ion-option>
+                            <ion-option value="1">Mumbai - Dadar(Ruby Office)</ion-option>
+                            <ion-option value="2">Mumbai - Rabale(Sigma IT Park)</ion-option>
+                            <ion-option value="3">Mumbai - Prabhadevi(Bussiness Tower 8Th Floor)</ion-option>
+                            <ion-option value="4">Mumbai - Prabhadevi(Bussiness Tower 9Th Floor)</ion-option>
+                            <ion-option value="5">Mumbai - Prabhadevi(Bussiness Tower 10Th Floor)</ion-option>
+                            <ion-option value="6">Mumbai - Prabhadevi(Unique Office)</ion-option>
+                            <ion-option value="7">Pune</ion-option>
+                          </ion-select>
+                </ion-item>
+                <ion-item class="ion-itemColor"
+                    no-lines
+                    *ngIf=" user.get('branch').hasError('required')  && user.get('branch').touched">
+    
+                    <div
+                        class="error"
+                        *ngIf=" user.get('branch').touched">
+                        Please select branch first
+                    </div>
+                </ion-item>
+
+
+          <button class= "buttonColor" ion-button full margin-top [disabled]="user.invalid">Login</button>
 
           
           
 
       </form>
 
-      <button ion-button full margin-top (click)="register()">Register</button>
+      <button class= "buttonColor" ion-button full margin-top (click)="register()">Register</button>
   </ion-list>
 </ion-content>
   <style type="text/css">
